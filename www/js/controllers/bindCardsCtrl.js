@@ -1,0 +1,7 @@
+angular.module('oil.bindCardsCtrl',['oil.UtilService','oil.services','oil.UserService']).controller('bindCardsCtrl',function($scope,$log,$ionicHistory,$state,servicesRequest,Util,User,$ionicLoading,$location,Storage){$scope.cardInfo={show_card:"",card_pwd:"",name:""}
+  $scope.checked=false;$scope.changeVerify=function(){$scope.checked=!$scope.checked;}
+  $scope.bindCards=function(){$('.read-only').attr('read-only','true');var token=$location.search().token;if(token==null||token==''){token=User.getToken();}
+    Storage.set("token",token);servicesRequest.bindCardsService($scope.formData.cardno,$scope.cardInfo.card_pwd,token).success(function(data){var statusCode=data.code;var message=data.message;if(statusCode==100){var content=JSON.parse(data.content);Util.ionicPopupAlert("保存成功").then(function(res){$state.go('tab.home');});}else{Util.ionicPopupAlert(message);}}).error(function(error){Util.ionicPopupAlert("绑定失败，请重试！");}).finally(function(){})}
+  var checkCards=function(){var token=$location.search().token;if(token==null||token==''){token=User.getToken();}
+    Storage.set("token",token);servicesRequest.checkCardsService(token).success(function(data){$ionicLoading.hide();var statusCode=data.code;var message=data.message;if(statusCode==100){var content=JSON.parse(data.content);$scope.cardInfo=content;$scope.formData={};}else{Util.ionicPopupAlert(message);}}).error(function(error){Util.ionicPopupAlert("绑定失败，请重试！");}).finally(function(){})}
+  $scope.$on('$ionicView.beforeEnter',function(){checkCards();});})

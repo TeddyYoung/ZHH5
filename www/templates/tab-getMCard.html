@@ -1,0 +1,69 @@
+
+<ion-view view-title="消费查询"  hide-nav-bar="true" style="background:#F1F1F1 ">
+  <!--<div class="bar bar-header bar-royal" style="background-color:#;border-color:#;">-->
+            <!--&lt;!&ndash;<a href="#/app/capture" class="button button-icon icon ion-ios-arrow-left ">返回</a>&ndash;&gt;-->
+    <!--&lt;!&ndash;<h1 class="title">中化</h1>&ndash;&gt;-->
+  <!--</div>-->
+
+  <ion-content class="padding " style="padding:0px 7px;background:#F1F1F1" overflow-scroll='false'>
+    <!--<ion-refresher on-refresh="doRefresh()" pulling-text="下拉刷新"></ion-refresher>-->
+        <div  ng-hide="flag" style="text-align: center;line-height:500px;color:#B2B2B3;font-size:20px;">
+        <strong  >无消费记录</strong>
+      </div>
+      <div ng-show="flag" class="card" style="border-radius: 2px;margin:5px 5px;" ng-repeat="item in content">
+        <!--<div class="row">-->
+          <!--<div style="width:30%">-->
+            <!--<span ng-bind="item.workdate"></span>-->
+            <!--<i class="icon ion-clock placeholder-icon iconStyle"></i>-->
+          <!--</div>-->
+          <!--<span style="width:1px; border-left:2px #ddd solid;border-color:#ddd;"></span>-->
+          <!--<div style="width: 70%">-->
+            <!--<span ng-bind="item.shopname"></span>-->
+          <!--</div>-->
+
+        <!--</div>-->
+        <div class="row row-center" style="height:70px;background: #f5f5f5;border: 1px solid #f5f5f5;font-size:14px;color:#444">
+          <div  style="font-size:14px;padding-left:10px;width: 25%;">
+            <span ng-bind="item.workdate" style="margin-left:10px;"></span>
+            <i class="icon ion-clock placeholder-icon iconStyle"style="margin-left:-69px;padding-left:14px;"></i>
+          </div>
+          <div style="height:112px; width:1px; border-left:2px #ddd solid;border-color:#ddd;margin:-8px 0px;">
+          </div>
+          <div style="width:75%;padding-right: 5px !important;height:70px;margin:-9px 4px;padding-top:8px;" >
+            <!--<i class="icon ion-help-buoy placeholder-icon iconStyle"></i>-->
+            <span ng-bind="item.shopname"></span>
+            <!--<i class="icon ion-social-usd placeholder-icon iconStyle"></i>-->
+           <!--<span style="color: red;float: right;" ng-bind="item.fanli"></span>-->
+            <div style="float:right;padding-right:8px;margin-right: -12px;"ng-show="flag">
+            <span ng-hide="item.fanli==''" style="right:55px;position: absolute">积分</span>
+              <span style="color:red;" ng-bind="item.fanli"></span>
+            </div>
+            <hr style="border: 1px solid #ddd;margin-right:-15px;margin-left:-5px;line-height:70px;vertical-align: middle;"/>
+            <div  style="width: 100%;padding-bottom: 0">
+              <span ng-bind="item.salename"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!--<ion-infinite-scroll  on-infinite="loadMore()" distance="1%" immediate-check="false"></ion-infinite-scroll>-->
+    <!--<button ng-click="loadMore()">12121</button>-->
+    <ion-infinite-scroll style="height: 0px;"  on-infinite="loadMore()" ng-if="hasSe" distance="-1%" immediate-check="false"></ion-infinite-scroll>
+    <!--<ion-refresher pulling-text="Pull to refresh" on-refresh="vm.doRefresh()"></ion-refresher>-->
+
+     <!--ion-infinite-scroll 上拉加载数据指令 distance默认1% nf-if的值为false时，就禁止执行on-infinite-->
+
+  </ion-content>
+  </ion-content>
+</ion-view>
+
+
+
+
+
+
+
+
+
+
+
+

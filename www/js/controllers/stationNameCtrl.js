@@ -1,0 +1,2 @@
+angular.module('oil.stationNameCtrl',[]).controller('stationNameCtrl',function($scope,$log,$state){$scope.getIntegralCard=function(){$state.go('tab.bindCards');}
+  $scope.getRecharge=function(){$state.go('tab.addMember');}})

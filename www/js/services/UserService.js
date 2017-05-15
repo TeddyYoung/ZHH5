@@ -1,0 +1,1 @@
+'use strict';angular.module('oil.UserService',['oil.UtilService']).factory('User',function($rootScope,$http,$log,Storage,Util){return{getToken:function(){return Storage.get('token');},}});

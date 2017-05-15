@@ -1,0 +1,8 @@
+angular.module('oil.integralCardCtrl',['oil.UtilService','oil.services','oil.UserService']).controller('integralCardCtrl',function($scope,$log,$state){$scope.getPointQuery=function(){$state.go('tab.pointQuery');}
+  $scope.myActiveSlide=0;$scope.activeStyle1="margin-top: 1px;"+"border-width: 0px 0px 2px 0px !important;"+"border-style: solid;"+"color: #fff;"+"border: 0 solid #fff;";$scope.activeStyle2="";$scope.activeStyle3="";$scope.active1=true;$scope.active2=false;$scope.active3=false;$scope.getData1=function(){$scope.myActiveSlide=0;$scope.activeStyle2=""
+    $scope.activeStyle1="margin-top: 1px;"+"border-width: 0px 0px 2px 0px !important;"+"border-style: solid;"+"color: #fff;"+"border: 0 solid #fff;";$scope.activeStyle3="";$scope.active1=true;$scope.active2=false;$scope.active3=false;}
+  $scope.getData2=function(){$scope.myActiveSlide=1
+    $scope.activeStyle2="margin-top: 1px;"+"border-width: 0px 0px 2px 0px !important;"+"border-style: solid;"+"color: #fff;"+"border: 0 solid #fff;"
+    $scope.activeStyle1="";$scope.activeStyle3="";$scope.active1=false;$scope.active2=true;$scope.active3=false;}
+  $scope.getData3=function(){$scope.myActiveSlide=2;$scope.activeStyle3="margin-top: 1px;"+"border-width: 0px 0px 2px 0px !important;"+"border-style: solid;"+"color: #fff;"+"border: 0 solid #fff;"
+    $scope.activeStyle1="";$scope.activeStyle2="";$scope.active1=false;$scope.active2=false;$scope.active3=true;}})

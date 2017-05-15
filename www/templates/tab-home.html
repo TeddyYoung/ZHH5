@@ -1,0 +1,135 @@
+<ion-view view-title=" "   hide-nav-bar="true"style="background:#F9F9F9;">
+  <ion-content class="content" style="background: #F9F9F9;">
+    <div style="background-image: url('img/bg.png');background-size: 100% 100%;opacity:1; background:#01AAEE;">
+
+      <div  style="text-align: center;padding-top: 5px;">
+        <img src="{{balance.img}}" style="width:100px;border-radius:50%;">
+      </div>
+      <div style="text-align: center;font-size:20px;color:white;height:40px;color: #fff;">
+        <span>积分:</span><span  ng-bind="balance.mamount" ></span>
+        <!--<span>余额:</span><span  ng-bind="balance.camount" style="margin-left:5px;"></span>-->
+      </div>
+    </div>
+    <div style="padding:20px;zoom: 0.3 ;margin-top: 30px" ng-click="getBarCode(balance.cardno)">
+      <div style="text-align: -webkit-center;margin-left: 44px;">
+        <div id="bcTarget" style="width: 100%;margin-top:-10px;"></div>
+      </div>
+    </div>
+    <!--<div style="padding:5px;padding-left: 15px;padding-right: 15px">-->
+    <!--<img style="height:50px;" src="img/ywm.png">-->
+    <!--</div>-->
+    <div style="text-align:center;font-size:14px;color:black;margin-top:-10px;">
+      <p style="margin-top: 2px"><span ng-bind="balance.mcard"></span></p>
+    </div>
+
+    <div class="list" style="font-size: 100%;">
+      <div ng-click="goPay()"style="position: relative;z-index: 2;padding: 20px 0px ;;text-align:center;background: white;margin-top:-5px;">
+        <span style="font-size:23px;"><a  style="text-decoration: none;color:#01AAEE;">去买单</a></span>
+
+      </div>
+      <div style="height: 1px;background-color: #e3e3e3;margin-left: 10px;margin-right: 10px;"></div>
+
+
+      <div style="margin-top: 0px;background-color: #FFFFFF;">
+        <div class="row" style="padding:0;">
+          <div class="col col-center" ng-click="getMCard()" style="padding: 15px">
+            <img src="img/getMCard.png" class="aligncenter widthCustom"/>
+          </div>
+
+          <div class="custom-ver-divider"></div>
+          <div class="col col-center" ng-click="getInvoiceManagement()" style="padding:15px">
+            <img src="img/Invoice.png" class="aligncenter widthCustom"/>
+          </div>
+
+          <div class="custom-ver-divider"></div>
+          <div class="col col-center" ng-click="getCardChange()" style="padding:15px">
+            <img src="img/CardChange.png" class="aligncenter widthCustom"/>
+          </div>
+        </div>
+
+        <div class="custom-hor-divider" style="margin-left:0px; margin-right:0px;"></div>
+
+        <div class="row" style="padding:0;">
+          <div class="col col-center" style="padding:15px" ng-click="navigation()">
+            <img src="img/navigation.png" class="aligncenter widthCustom"/>
+            <!--<div style="text-align:center"><h5>附近加油站</h5></div>-->
+          </div>
+          <div class="custom-ver-divider"></div>
+          <div class="col col-center" style="padding:15px" ng-click="getHelp()">
+            <img src="img/help.png" class="aligncenter widthCustom"/>
+            <!--<div style="text-align:center"><h5>帮助</h5></div>-->
+          </div>
+          <div class="custom-ver-divider"></div>
+          <div class="col col-center" style="padding:15px">
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+      <!--<ion-item class=" item-icon-right"style="margin-top:7px;border:none;" href="#/tab/home/getMCard">-->
+        <!--<span >消费查询</span>-->
+        <!--<i class="icon ion-ios-arrow-right sds-arrow-right-color"></i>-->
+      <!--</ion-item>-->
+
+      <!--<ion-item class=" item-icon-right" ng-click="getInvoiceManagement()">-->
+        <!--<span >发票管理</span>-->
+        <!--<i class="icon ion-ios-arrow-right sds-arrow-right-color"></i>-->
+      <!--</ion-item>-->
+      <!--<ion-item class=" item-icon-right" ng-click="getCardChange()">-->
+        <!--<span >会员卡更换</span>-->
+        <!--<i class="icon ion-ios-arrow-right sds-arrow-right-color"></i>-->
+      <!--</ion-item>-->
+       <!--<ion-item class=" item-icon-right" ng-click="navigation()">-->
+        <!--<span >油站导航</span>-->
+        <!--<i class="icon ion-ios-arrow-right sds-arrow-right-color"></i>-->
+      <!--</ion-item>-->
+      <!--<ion-item class=" item-icon-right" href="#/tab/home/help">-->
+        <!--<span >帮助</span>-->
+        <!--<i class="icon ion-ios-arrow-right sds-arrow-right-color"></i>-->
+      <!--</ion-item>-->
+    </div>
+  </ion-content>
+  <SCRIPT type="text/javascript">
+
+    $(function(){
+      var barcodeValue = $("#txtBarcodeValue").val();
+      $("#hidBarcode").html(barcodeValue);
+      $("#hidBarcode").barcode({ code: 'code39' });
+    })
+
+
+
+
+  </SCRIPT>
+</ion-view>
+
+<style type="text/css">
+  .aligncenter {
+    clear: both;
+    display: block;
+    margin: auto;
+  }
+
+  .widthCustom {
+    width: 75%
+  }
+
+  .marginTopBottom20 {
+    margin-top: 18px;
+    margin-bottom: 18px;
+  }
+
+  .custom-hor-divider {
+    height: 1px;
+    background-color: #e3e3e3;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .custom-ver-divider {
+    width: 1px;
+    background-color: #e3e3e3;
+  }
+
+</style>

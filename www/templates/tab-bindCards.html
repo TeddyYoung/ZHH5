@@ -1,0 +1,83 @@
+<ion-view view-title="绑定会员"   hide-nav-bar="true" style="background:#F1F1F1;">
+  <!--<div class="bar bar-header bar-royal" >-->
+           <!--&lt;!&ndash;<a class="button button-icon icon ion-ios-arrow-left "ng-click="getPointQuery()">返回</a>&ndash;&gt;-->
+				<!--<h1 class="title">中化</h1>-->
+  <!--</div>-->
+  <ion-content class="padding " style="padding:0;background:#F1F1F1;">
+   <!--<div style="background-image: url('img/bg.png');background-size: 100% 100%;opacity:1;">-->
+      <!--&lt;!&ndash;<div class="padding" style="background: transparent;">&ndash;&gt;-->
+        <!--&lt;!&ndash;<h4 style="color: #FFFFFF;margin-left: 10px">中化</h4>&ndash;&gt;-->
+      <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+        <!--<div  style="text-align: center;padding-top:30px">-->
+           <!--<img src="img/max.png" style="width:100px;border-radius:50%;">-->
+        <!--</div>-->
+     <!--<div style="text-align: center;font-size:32px;color: #fff;padding: 15px;">-->
+            <!--0.00元-->
+     <!--</div>-->
+     <!--<div>-->
+         <!--<p style="text-align:center;font-size:16px;color:white;padding-bottom: 10px;opacity: 0.5">卡号：4615194</p>-->
+     <!--</div>-->
+   <!--</div>-->
+   <!--<div style="padding: 50px 12px 15px 12px;">-->
+
+    <!--<div class="card">-->
+     <!--&lt;!&ndash;<span class="item-checkbox "style="zoom:0.6;padding:0;">&ndash;&gt;-->
+
+
+      <!--<div class="item item-text-wrap" style=" background:white;font-size:14px; vertical-align: middle;padding: 11px;">-->
+       <!--<div style="float: left;zoom: 0.6; margin-left: -12px;margin-top: -3px">-->
+          <!--<label class="checkbox" >-->
+            <!--<input type="checkbox">-->
+          <!--</label>-->
+       <!--</div>-->
+        <!--卡号：1234567890000000<span style="float:right;">会员卡</span>-->
+      <!--</div>-->
+      <!--<div class="item item-text-wrap" style="padding:10px; background:white;font-size: 14px;text-indent:20px;">-->
+            <!--姓名：李-->
+      <!--</div>-->
+      <!--<div class="item item-text-wrap" style="padding:10px; background:white;font-size: 14px;text-indent:20px;">-->
+            <!--余额：100-->
+      <!--</div>-->
+    <!--</div>-->
+<!--<div >-->
+    <div style="font-size:18px;margin-top:20px;text-indent: 34px;">
+      <lable>您已申请的会员如下：</lable>
+    </div>
+    <form name="myForm">
+    <div  ng-repeat=" c in cardInfo">
+      <div style="float: left;zoom: 0.6; margin-left: 18px;margin-top:56px" >
+        <label class="checkbox">
+          <input type="radio" name="formData"ng-click="changeVerify()" ng-name="c.cardno" ng-value="c.cardno" ng-model="formData['cardno']"/>
+        </label>
+      </div>
+        <div class="list list-inset" style="margin-left: 16px;margin-right: 16px;border-radius: 5px;">
+          <label class="item item-input" style="padding: 6px 0 5px 6px;">
+
+            <!--<i class="icon ion-card placeholder-icon iconStyle"></i>-->
+            <span>卡号:</span><input type="text" class="read-only" style="text-indent: 20px" id="show_card" name="show_card"ng-model="c.show_card" type="text"  ng-readonly="true" required>
+            <input type="hidden" name="cardno" ng-model="c.cardno">
+          </label>
+          <!--<label class="item item-input">-->
+            <!--姓名:<input type="text" style="text-indent: 20px" id="card_pwd" name="card_pwd"-->
+                        <!--ng-model="cardInfo.card_pwd">-->
+          <!--</label>-->
+          <label class="item item-input" style="padding: 6px 0 5px 6px;">
+            <!--<i class="icon ion-social-dropbox placeholder-icon iconStyle"></i>-->
+            <span style="margin-left: 3px;">姓名:</span><input type="text" class="read-only" style="text-indent: 20px" id="name" name="name"ng-model="c.name" ng-readonly="true" required>
+          </label>
+        </div>
+      </div>
+
+     <label class="item item-input" style="border-radius: 5px;margin:16px;padding: 6px 0 5px 6px">
+          <i class="icon ion-ios-locked placeholder-icon" ></i>
+          <input type="password" ng-model="cardInfo.card_pwd" value="{{cardInfo.card_pwd}}" placeholder="请输入密码" name="password" required>
+     </label>
+  </form>
+    <div style="padding:10px;">
+        <button class="button button-calm" style="width:100%;" ng-disabled="!(checked&& !myForm.$invalid)"  ng-click="bindCards()">
+          会员绑定
+        </button>
+	</div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,60 @@
+
+<ion-view  view-title="申请会员"  hide-nav-bar="true"style="background:#F1F1F1;" class="tabs-icon-top tabs-positie {{hideTabs}}">
+  <!--<div class=" has-header bar bar-header bar-royal" >-->
+            <!--<a  class="button button-icon icon ion-ios-arrow-left "ng-click="getPointQuery()" >返回</a>-->
+			<!--<h1 class="title">中化</h1>-->
+  <!--</div>-->
+
+  <ion-content class="padding" style="padding:0;background:#F1F1F1;" >
+   <!--<div class="has-header bar bar-header bar-royal">-->
+      <!--<div class=" has-header" style="background: transparent;">-->
+        <!--<h4 style="color: #FFFFFF;text-align:center">中化</h4>-->
+      <!--</div>-->
+
+        <!--<div  style="text-align: center;padding-top:50px;">-->
+
+        <!--</div>-->
+     <!--&lt;!&ndash;<div style="text-align: center;font-size:32px;color: #fff;padding: 15px;">-->
+            <!--0.00元-->
+     <!--</div>-->
+     <!--<div>-->
+         <!--<p style="text-align:center;font-size:16px;color:white;padding-bottom: 10px;opacity: 0.5">卡号：4615194</p>-->
+     <!--</div>&ndash;&gt;-->
+   <!--</div>-->
+    <form name="myForm">
+  		 <div class="list list-inset" >
+          <label class="item item-input">
+            <i class="icon ion-android-person placeholder-icon iconStyle"></i>
+            姓名:<input type="text" style="text-indent: 10px"  ng-model="memberInfo.name" value="{{memberInfo.name}}" required readonly>
+          </label>
+          <label class="item item-input">
+            <i class="icon ion-card placeholder-icon iconStyle"></i>
+            身份证:<input type="text" style="text-indent: 10px" ng-model="memberInfo.mcard"value="{{memberInfo.mcard}}"  required readonly>
+          </label>
+          <label class="item item-input"style="width:120%;font-size:16px;">
+            <i class="icon ion-android-call placeholder-icon iconStyle"></i>
+           手机号码:<input type="number" id="pattern" name="pattern" style="text-indent:10px;" ng-model="memberInfo.phone"value="{{memberInfo.phone}}" ng-pattern="/[1][34578]\d{9}/" ng-minlength="11" ng-maxlength="11" required>
+            <i class="icon icon-right ion-checkmark-round balanced padding-right" ng-show="myForm.pattern.$dirty && myForm.pattern.$valid"></i>
+          </label>
+  		</div>
+  </form>
+  		</div>
+    <ul class="list" style="margin-left: -8px;margin-top: 10px;">
+      <li class="item-checkbox"style="padding-left: 44px;">
+        <label class="checkbox" style="width: 30px;left: 9px;">
+          <input type="checkbox"ng-click="changeVerify()" style="-webkit-transform:scale(0.7,0.7);">
+        </label>
+       <span>同意</span><span ng-click="getAgreement()"style="margin-left: 5px">《<span style="color:#01AAEE;">会员章程</span>》</span>
+      </li>
+    </ul>
+        <div style="padding:10px">
+        	<button class="button button-calm"  style="width:100%;" ng-disabled="!(checked&& !myForm.$invalid)" ng-click="AddMember()">
+            会员申请
+          </button>
+        </div>
+       <div style="padding:10px;float:right;font-size:16px;" >
+         <span style="color: #444;" ng-click="getBind()">已加入会员，点击这边<a style="text-decoration: underline;margin:0 5px;">绑定会员卡</a></span>
+       </div>
+  </ion-content>
+</ion-view>
+|

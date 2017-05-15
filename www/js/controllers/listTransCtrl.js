@@ -1,0 +1,1 @@
+angular.module('oil.listTransCtrl',['oil.UtilService','oil.services','oil.UserService']).controller('listTransCtrl',function($scope,$log,$ionicHistory,$state,servicesRequest,Util){})

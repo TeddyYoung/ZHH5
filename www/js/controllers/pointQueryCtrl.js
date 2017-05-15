@@ -1,0 +1,2 @@
+angular.module('oil.pointQueryCtrl',['oil.UtilService','oil.services','oil.UserService']).controller('pointQueryCtrl',function($scope,$log,$state){$scope.getIntegralCard=function(){$state.go('tab.integralCard');}
+  $scope.getRecharge=function(){$state.go('tab.recharge');}})
